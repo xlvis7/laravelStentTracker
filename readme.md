@@ -14,11 +14,11 @@
 - Take note of the handle() function in app/Console/SendMail.php
 
 ## Manually Send Mail
--cd to the project directory in command prompt
--type "php artisan schedule:run" and enter
+- cd to the project directory in command prompt
+- type "php artisan schedule:run" and enter
 
 ## Automatically Send Mail
-Refer to <a href="https://stackoverflow.com/questions/36305146/how-to-run-task-scheduler-in-windows-10-with-laravel-5-1">StackOverflow</a>
+- Refer to the Answer in: <a href="https://stackoverflow.com/questions/36305146/how-to-run-task-scheduler-in-windows-10-with-laravel-5-1">StackOverflow</a>
 
 ## Send to Live Email (Gmail, OutLook, Yahoo Mail, etc...)
--Setup SMTP Server and modify the MAIL_ sections of the .env file
+- Setup SMTP Server and modify the MAIL_ sections of the .env file
