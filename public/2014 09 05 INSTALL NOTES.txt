@@ -1,0 +1,6 @@
+includes/Widgets/loggedin.php
+
+add column Number_Of_Students in table seru_courses length 255 default 1000;
+
+
+

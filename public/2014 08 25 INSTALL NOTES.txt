@@ -1,0 +1,8 @@
+includes/Widgets/loggedin.php
+
+add column Registration_Date in table users, length 400
+
+add column Paid in table students, length 100
+
+
+
