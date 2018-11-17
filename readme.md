@@ -3,7 +3,8 @@
 -<a href="www.mailtrap.io">MailTrap</a> account (For Testing)
 
 ## Installation
-- N/A
+- cd to the project directory in cpmmand prompt
+- type in "composer install"
 
 ## Configuration
 - Edit the .env file for DB_ & MAIL_ sections to your MySQL and MailTrap settings
