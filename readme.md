@@ -1,6 +1,6 @@
 # Prerequisite
--Composer (bind to php.exe for the server (XAMP/WAMP/etc...)) Use binary installation to be safe
--<a href="www.mailtrap.io">MailTrap</a> account (For Testing)
+- Composer (bind to php.exe for the server (XAMP/WAMP/etc...)) Use binary installation to be safe
+- Setup a <a href="www.mailtrap.io">MailTrap</a> account (For Testing)
 
 # Installation
 - cd to the project directory in cpmmand prompt
