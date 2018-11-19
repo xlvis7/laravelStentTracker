@@ -133,7 +133,7 @@ else
 		
 		if(isset($_GET['success']) && empty($_GET['success']))
 		{
-			echo 'you have been registered successfully';
+			echo 'You have been registered successfully, your verification email will arrive shortly';
 		}
 		else
 		{
@@ -158,9 +158,12 @@ else
 					'Kolej_Kediaman'      => $_POST['Kolej_Kediaman'],
 					'Hand_Phone_Number'      => $_POST['Hand_Phone_Number'],
 					'Registration_Date'      => $_SESSION['REGISTER_Registration_Date'],
-					'role'      => "student"
+					'role'      => "student",
+					'isEmailVerified' => "0",
+					'Registration_DateTime'      => date("Y-m-d H:i:s")
 					);
 					register_user($register_data);
+					sendEmailVerification($register_data);
 					//redirect
 					header('Location: register.php?success');
 					// exit

@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('base/index');
 });
+
+Route::get('/sendVerificationMail', function (\Illuminate\Http\Request $request,
+  \Illuminate\Mail\Mailer $mailer){
+    $mailer
+        ->to("as@as.as")
+        ->send(new \App\Mail\VerificationMail("title"));
+        // ->to($request->input('mail'))
+        // ->send(new \App\Mail\VerificationMail($request->input('title')));
+    // return redirect()->back();
+})->name('sendVerificationMail');

@@ -13,6 +13,10 @@ $errors[] ='this username and password isnt registered, have you registered?';
 else if(user_active($username) === false){
 $errors[] ='you have not activated your account yet';
 }
+else if(user_emailVerified($username) === false){
+$errors[] ='Please verify the email to activate your account';
+//resend email function here if needed
+}
 else {
 if(strlen($password) > 32){
 $errors[] = 'the pasword is too long';

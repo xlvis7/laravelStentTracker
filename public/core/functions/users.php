@@ -22,6 +22,23 @@ function register_user($register_data)
 	$data = '\'' . implode('\', \'', $register_data) . '\'';
 
 	mysql_query("INSERT INTO `users` ($fields) VALUES ($data)"); //this produce the exatc string t insert into database
+
+}
+
+function sendEmailVerification($register_data)
+{
+	$http_protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on")? "https://" : "http://";
+
+	exec("cd {$_SERVER['DOCUMENT_ROOT']} && cd .. && php artisan send:verificationMail --email={$register_data['email']} --host={$http_protocol}{$_SERVER['SERVER_NAME']}");
+}
+
+function verifyEmail($emailSanitized)
+{
+	$user_id = (int) mysql_result(mysql_query("SELECT `user_id` FROM `users` WHERE `email` = '$emailSanitized'"),
+			 0, 'user_id');
+
+	$myQuery = "UPDATE `users` SET `isEmailVerified` = '1' WHERE `user_id` = $user_id";
+	mysql_query($myQuery);
 }
 
 function user_count()
@@ -75,6 +92,13 @@ function user_active($username)
 {
 	$username = sanitize($username);
 	$query = mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `username` = '$username' AND `active` = 1");
+	return (mysql_result($query, 0) == 1) ? true : false;
+}
+
+function user_emailVerified($username)
+{
+	$username = sanitize($username);
+	$query = mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `username` = '$username' AND `isEmailVerified` = 1");
 	return (mysql_result($query, 0) == 1) ? true : false;
 }
 
